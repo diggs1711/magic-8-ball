@@ -1,0 +1,66 @@
+$ball-size: 50vmax;
+$ball-color: black;
+$ball-shine: inset -1.5em -1.5em 20px lighten(black, 20%);
+$animation-settings: 5s linear 2 alternate;
+
+.ball {
+	height: $ball-size;
+	width: $ball-size;
+	background: $ball-color;
+	border-radius: 50%;
+	box-shadow: $ball-shine;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: $ball-size / 2;
+		width: $ball-size / 2;
+		border-radius: 50%;
+		box-shadow: $ball-shine;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&::after {
+		content: '';
+		color: white;
+		position: absolute;
+		border: 10em solid blue;
+		border-left-color: transparent;
+		border-right-color: transparent;
+		border-top-color: blue;
+		border-bottom-color: transparent;
+		top: 66%;
+		left: 50%;
+		opacity: 0;
+		transition: 1s all linear;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@keyframes show-message {
+	to {
+		opacity: 1;
+	}
+}
+
+.fortune {
+	z-index: 1;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 700;
+	transition: 1s all linear;
+	opacity: 0;
+}
+
+.show {
+	animation: show-message $animation-settings;
+
+	&::after {
+		animation: show-message $animation-settings;
+	}
+}
