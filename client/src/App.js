@@ -11,6 +11,7 @@ function App() {
 
   const handleFormBtnClick = async (e) => {
     e.preventDefault()
+
     if (fortuneMessage.length) {
       alert("you very eager to ask questions")
       return;
@@ -37,24 +38,14 @@ function App() {
     setQuestion(e.target.value);
   }
 
-  return ( <
-    div >
-    <
-    Ball message = {
-      fortuneMessage
-    }
-    /> <
-    InputForm question = {
-      question
-    }
-    onSubmit = {
-      handleFormBtnClick
-    }
-    onChange = {
-      handleQuestionChange
-    }
-    /> < /
-    div >
+  return (
+    <div>
+      <Ball message={fortuneMessage} />
+      <InputForm
+        question={question}
+        onSubmit={handleFormBtnClick}
+        onChange={handleQuestionChange} />
+    </div>
   );
 }
 
