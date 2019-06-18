@@ -11,8 +11,9 @@ function App() {
 
   const handleFormBtnClick = async (e) => {
     e.preventDefault()
+    //make sure message is cleared before submitting question
     if (fortuneMessage.length) {
-      alert("you very eager to ask questions")
+      alert("you are very eager to ask questions")
       return;
     }
 
