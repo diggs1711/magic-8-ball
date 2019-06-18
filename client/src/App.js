@@ -1,7 +1,6 @@
 import React, {
   useState
 } from 'react';
-import Styles from './App.module.scss';
 import Ball from './Components/Ball/Ball';
 import InputForm from './Components/InputForm/InputForm';
 import fortuneService from './Services/fortune';
@@ -10,19 +9,26 @@ function App() {
   const [fortuneMessage, setFortuneMessage] = useState("");
   const [question, setQuestion] = useState("");
 
-  const handleClick = async (e) => {
+  const handleFormBtnClick = async (e) => {
     e.preventDefault()
+    if (!question || question === "") {
+      alert("you must ask a question")
+      return
+    }
 
     try {
       const fortune = await fortuneService.getFortune();
       setFortuneMessage(fortune);
       setQuestion('');
+
+      //reset the fortune message after animation has ended
+      setTimeout(() => setFortuneMessage(''), 5000);
     } catch {
       console.error("error retrieving fortune");
     }
   }
 
-  const handleChange = (e) => {
+  const handleQuestionChange = (e) => {
     setQuestion(e.target.value);
   }
 
@@ -31,8 +37,8 @@ function App() {
       <Ball message={fortuneMessage} />
       <InputForm
         question={question}
-        onSubmit={handleClick}
-        onChange={handleChange} />
+        onSubmit={handleFormBtnClick}
+        onChange={handleQuestionChange} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 $ball-size: 50vmax;
 $ball-color: black;
 $ball-shine: inset -1.5em -1.5em 20px lighten(black, 20%);
-$animation-settings: 5s linear 2 alternate;
+$animation-settings: 2.5s linear 2 alternate;
 
 .ball {
 	height: $ball-size;
@@ -29,7 +29,7 @@ $animation-settings: 5s linear 2 alternate;
 		content: '';
 		color: white;
 		position: absolute;
-		border: 10em solid blue;
+		border: $ball-size / 4.5 solid blue;
 		border-left-color: transparent;
 		border-right-color: transparent;
 		border-top-color: blue;
@@ -53,6 +53,7 @@ $animation-settings: 5s linear 2 alternate;
 	color: white;
 	text-transform: uppercase;
 	font-weight: 700;
+	font-size: 0.8em;
 	transition: 1s all linear;
 	opacity: 0;
 }

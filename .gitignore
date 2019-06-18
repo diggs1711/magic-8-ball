@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-=======
 # Logs
 logs
 *.log
@@ -59,6 +34,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+client/node_modules
+server/node_modules
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -84,4 +61,3 @@ typings/
 
 # next.js build output
 .next
->>>>>>> 839299de2869c4e328a658e7105fe9e521e99de8
